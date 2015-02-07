@@ -1,0 +1,10 @@
+PODS:
+  - iConsole (1.5.3)
+
+DEPENDENCIES:
+  - iConsole
+
+SPEC CHECKSUMS:
+  iConsole: 4f659327fff930a4d60f737757f738376d9b873b
+
+COCOAPODS: 0.34.4

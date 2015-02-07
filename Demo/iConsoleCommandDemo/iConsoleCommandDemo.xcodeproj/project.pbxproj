@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA150F05C27D6E3E987D6ACA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DAE69200550ABEBE1D3E2F /* libPods.a */; };
+		EE107AC11A85E078004F93AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE107AC01A85E078004F93AA /* main.m */; };
+		EE107AC41A85E078004F93AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE107AC31A85E078004F93AA /* AppDelegate.m */; };
+		EE107AC71A85E078004F93AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE107AC61A85E078004F93AA /* ViewController.m */; };
+		EE107ACC1A85E078004F93AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE107ACB1A85E078004F93AA /* Images.xcassets */; };
+		EE107ACF1A85E078004F93AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE107ACD1A85E078004F93AA /* LaunchScreen.xib */; };
+		EE107ADB1A85E078004F93AA /* iConsoleCommandDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE107ADA1A85E078004F93AA /* iConsoleCommandDemoTests.m */; };
+		EE107AE71A85E0C5004F93AA /* CFCommandEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = EE107AE61A85E0C5004F93AA /* CFCommandEngine.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE107AD51A85E078004F93AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE107AB31A85E078004F93AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE107ABA1A85E078004F93AA;
+			remoteInfo = iConsoleCommandDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		377C6140081FD872EE45A422 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		39DAE69200550ABEBE1D3E2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B894EB8642DD92AD578F0FE3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EE107ABB1A85E078004F93AA /* iConsoleCommandDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iConsoleCommandDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE107ABF1A85E078004F93AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE107AC01A85E078004F93AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE107AC21A85E078004F93AA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE107AC31A85E078004F93AA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE107AC51A85E078004F93AA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EE107AC61A85E078004F93AA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE107ACB1A85E078004F93AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EE107ACE1A85E078004F93AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EE107AD41A85E078004F93AA /* iConsoleCommandDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iConsoleCommandDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE107AD91A85E078004F93AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE107ADA1A85E078004F93AA /* iConsoleCommandDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iConsoleCommandDemoTests.m; sourceTree = "<group>"; };
+		EE107AE51A85E0C5004F93AA /* CFCommandEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFCommandEngine.h; sourceTree = "<group>"; };
+		EE107AE61A85E0C5004F93AA /* CFCommandEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFCommandEngine.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE107AB81A85E078004F93AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA150F05C27D6E3E987D6ACA /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE107AD11A85E078004F93AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6601DF52E069B7E76D53FD24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				377C6140081FD872EE45A422 /* Pods.debug.xcconfig */,
+				B894EB8642DD92AD578F0FE3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		90FF34E95EE08EFE45734091 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39DAE69200550ABEBE1D3E2F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE107AB21A85E078004F93AA = {
+			isa = PBXGroup;
+			children = (
+				EE107AE41A85E089004F93AA /* iConsoleCommand */,
+				EE107ABD1A85E078004F93AA /* iConsoleCommandDemo */,
+				EE107AD71A85E078004F93AA /* iConsoleCommandDemoTests */,
+				EE107ABC1A85E078004F93AA /* Products */,
+				6601DF52E069B7E76D53FD24 /* Pods */,
+				90FF34E95EE08EFE45734091 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EE107ABC1A85E078004F93AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE107ABB1A85E078004F93AA /* iConsoleCommandDemo.app */,
+				EE107AD41A85E078004F93AA /* iConsoleCommandDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE107ABD1A85E078004F93AA /* iConsoleCommandDemo */ = {
+			isa = PBXGroup;
+			children = (
+				EE107AC21A85E078004F93AA /* AppDelegate.h */,
+				EE107AC31A85E078004F93AA /* AppDelegate.m */,
+				EE107AC51A85E078004F93AA /* ViewController.h */,
+				EE107AC61A85E078004F93AA /* ViewController.m */,
+				EE107ACB1A85E078004F93AA /* Images.xcassets */,
+				EE107ACD1A85E078004F93AA /* LaunchScreen.xib */,
+				EE107ABE1A85E078004F93AA /* Supporting Files */,
+			);
+			path = iConsoleCommandDemo;
+			sourceTree = "<group>";
+		};
+		EE107ABE1A85E078004F93AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE107ABF1A85E078004F93AA /* Info.plist */,
+				EE107AC01A85E078004F93AA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE107AD71A85E078004F93AA /* iConsoleCommandDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE107ADA1A85E078004F93AA /* iConsoleCommandDemoTests.m */,
+				EE107AD81A85E078004F93AA /* Supporting Files */,
+			);
+			path = iConsoleCommandDemoTests;
+			sourceTree = "<group>";
+		};
+		EE107AD81A85E078004F93AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE107AD91A85E078004F93AA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE107AE41A85E089004F93AA /* iConsoleCommand */ = {
+			isa = PBXGroup;
+			children = (
+				EE107AE51A85E0C5004F93AA /* CFCommandEngine.h */,
+				EE107AE61A85E0C5004F93AA /* CFCommandEngine.m */,
+			);
+			name = iConsoleCommand;
+			path = ../../iConsoleCommand;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE107ABA1A85E078004F93AA /* iConsoleCommandDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE107ADE1A85E078004F93AA /* Build configuration list for PBXNativeTarget "iConsoleCommandDemo" */;
+			buildPhases = (
+				A0E7B618BCA604DAE3395750 /* Check Pods Manifest.lock */,
+				EE107AB71A85E078004F93AA /* Sources */,
+				EE107AB81A85E078004F93AA /* Frameworks */,
+				EE107AB91A85E078004F93AA /* Resources */,
+				E7C7D7E05DD71D19CD533B43 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iConsoleCommandDemo;
+			productName = iConsoleCommandDemo;
+			productReference = EE107ABB1A85E078004F93AA /* iConsoleCommandDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE107AD31A85E078004F93AA /* iConsoleCommandDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE107AE11A85E078004F93AA /* Build configuration list for PBXNativeTarget "iConsoleCommandDemoTests" */;
+			buildPhases = (
+				EE107AD01A85E078004F93AA /* Sources */,
+				EE107AD11A85E078004F93AA /* Frameworks */,
+				EE107AD21A85E078004F93AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE107AD61A85E078004F93AA /* PBXTargetDependency */,
+			);
+			name = iConsoleCommandDemoTests;
+			productName = iConsoleCommandDemoTests;
+			productReference = EE107AD41A85E078004F93AA /* iConsoleCommandDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE107AB31A85E078004F93AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = chundong;
+				TargetAttributes = {
+					EE107ABA1A85E078004F93AA = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					EE107AD31A85E078004F93AA = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = EE107ABA1A85E078004F93AA;
+					};
+				};
+			};
+			buildConfigurationList = EE107AB61A85E078004F93AA /* Build configuration list for PBXProject "iConsoleCommandDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE107AB21A85E078004F93AA;
+			productRefGroup = EE107ABC1A85E078004F93AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE107ABA1A85E078004F93AA /* iConsoleCommandDemo */,
+				EE107AD31A85E078004F93AA /* iConsoleCommandDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE107AB91A85E078004F93AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE107ACF1A85E078004F93AA /* LaunchScreen.xib in Resources */,
+				EE107ACC1A85E078004F93AA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE107AD21A85E078004F93AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0E7B618BCA604DAE3395750 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7C7D7E05DD71D19CD533B43 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE107AB71A85E078004F93AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE107AC71A85E078004F93AA /* ViewController.m in Sources */,
+				EE107AC41A85E078004F93AA /* AppDelegate.m in Sources */,
+				EE107AE71A85E0C5004F93AA /* CFCommandEngine.m in Sources */,
+				EE107AC11A85E078004F93AA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE107AD01A85E078004F93AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE107ADB1A85E078004F93AA /* iConsoleCommandDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE107AD61A85E078004F93AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE107ABA1A85E078004F93AA /* iConsoleCommandDemo */;
+			targetProxy = EE107AD51A85E078004F93AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE107ACD1A85E078004F93AA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE107ACE1A85E078004F93AA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE107ADC1A85E078004F93AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE107ADD1A85E078004F93AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE107ADF1A85E078004F93AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 377C6140081FD872EE45A422 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = iConsoleCommandDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EE107AE01A85E078004F93AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B894EB8642DD92AD578F0FE3 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = iConsoleCommandDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EE107AE21A85E078004F93AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iConsoleCommandDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iConsoleCommandDemo.app/iConsoleCommandDemo";
+			};
+			name = Debug;
+		};
+		EE107AE31A85E078004F93AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iConsoleCommandDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iConsoleCommandDemo.app/iConsoleCommandDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE107AB61A85E078004F93AA /* Build configuration list for PBXProject "iConsoleCommandDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE107ADC1A85E078004F93AA /* Debug */,
+				EE107ADD1A85E078004F93AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE107ADE1A85E078004F93AA /* Build configuration list for PBXNativeTarget "iConsoleCommandDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE107ADF1A85E078004F93AA /* Debug */,
+				EE107AE01A85E078004F93AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE107AE11A85E078004F93AA /* Build configuration list for PBXNativeTarget "iConsoleCommandDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE107AE21A85E078004F93AA /* Debug */,
+				EE107AE31A85E078004F93AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE107AB31A85E078004F93AA /* Project object */;
+}
