@@ -53,4 +53,16 @@
         [iConsole info:@"command not found"];
     }
 }
+- (NSString*)returnString{
+    return @"returnString";
+}
+- (NSInteger)returnInt{
+    return 100;
+}
+- (float)returnFloat{
+    return 10.0;
+}
+- (NSString*)retId:(NSString*) arg{
+    return @"arg id return id";
+}
 @end

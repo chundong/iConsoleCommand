@@ -16,9 +16,10 @@
 #define PARSE_FUNCTION 1
 #define PARSE_ARG 2
 //http://stackoverflow.com/questions/19694173/using-objective-cs-invoke-method-to-call-a-void-method-under-arc
-static void (*_method_invoke_void_void)(id, Method, ...) = (void (*)(id, Method, ...)) method_invoke;
-static void (*_method_invoke_void_string)(id, Method, NSString*) = (void (*)(id, Method, NSString*)) method_invoke;
-//static id (*_method_invoke_id_id)(id, Method, ...) = (id (*)(id, Method, ...)) method_invoke;
+static void (*void_method_invoke_void)(id, Method) = (void (*)(id, Method)) method_invoke;
+static void (*void_method_invoke_id)(id, Method, id) = (void (*)(id, Method, id)) method_invoke;
+static id (*id_method_invoke_id)(id, Method, id) = (id (*)(id, Method, id)) method_invoke;
+static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_invoke;
 
 @implementation CFCommandEngine
 @synthesize bindObjects = _bindObjects;
@@ -108,13 +109,21 @@ static void (*_method_invoke_void_string)(id, Method, NSString*) = (void (*)(id,
             unsigned int count = 0;
             Method* methods = class_copyMethodList([obj class], &count);
             Method targetMethod = NULL;
+            NSString* returnType = nil;
             for (unsigned int i = 0; i < count; i++) {
                 Method m = methods[i];
                 SEL sel = method_getName(m);
                 
                 NSString* selName = [NSString stringWithFormat:@"%s",sel_getName(sel )];
+                char dst[1024];
+                memset(dst, 0, 1024);
+                
+                method_getReturnType(m,dst,1024);
+                
+                NSLog(@"retType == %s sel = %@",dst,selName);
                 
                 if ([selName isEqualToString:funcationName] || [selName isEqualToString:parseResult[@"property"]]) {
+                    returnType = [NSString stringWithFormat:@"%s",dst];
                     targetMethod = m;
                 }
             }
@@ -124,10 +133,22 @@ static void (*_method_invoke_void_string)(id, Method, NSString*) = (void (*)(id,
                 ret = YES;
                 switch ([parseResult[@"args"] count]) {
                     case 0:
-                        _method_invoke_void_void(obj,targetMethod);
+                        if ([returnType isEqualToString:@"v"]) {
+                            void_method_invoke_void(obj,targetMethod);
+                        }else if([returnType isEqualToString:@"@"]){
+                            id retVal = id_method_invoke_void(obj,targetMethod);
+                            [iConsole info:@"retVal = %@",retVal];
+                        }
+                        
                         break;
                     case 1:
-                        _method_invoke_void_string(obj,targetMethod,parseResult[@"args"][0]);
+                        
+                        if ([returnType isEqualToString:@"v"]) {
+                            void_method_invoke_id(obj,targetMethod,parseResult[@"args"][0]);
+                        }else if([returnType isEqualToString:@"@"]){
+                            id retVal = id_method_invoke_id(obj,targetMethod,parseResult[@"args"][0]);
+                            [iConsole info:@"retVal = %@",retVal];
+                        }
                         break;
                         
                     default:
