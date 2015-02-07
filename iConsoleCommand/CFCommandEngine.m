@@ -62,12 +62,16 @@ static void (*_method_invoke_void_string)(id, Method, NSString*) = (void (*)(id,
                     //
                 }else if(c == '('){
                     status = PARSE_ARG;
-                    [func appendString:@":"];
+                    
                     arg = [[NSMutableString alloc] initWithCapacity:10];
                 }
                 break;
             case PARSE_ARG:
                 if(c == ')'){
+                    if ([arg length] > 0) {
+                        [func appendString:@":"];
+                    }
+                    
                     status = PARSE_FUNCTION;
                     [argArray addObject:arg];
                 }else{
