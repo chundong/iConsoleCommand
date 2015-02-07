@@ -133,6 +133,7 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
                 ret = YES;
                 switch ([parseResult[@"args"] count]) {
                     case 0:
+                        //TODO 这个地方使用isEqualToString感觉不怎么好，主要是对method_getReturnType整个方法不是太了解。后面优化。
                         if ([returnType isEqualToString:@"v"]) {
                             void_method_invoke_void(obj,targetMethod);
                         }else if([returnType isEqualToString:@"@"]){
