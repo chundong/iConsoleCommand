@@ -17,7 +17,7 @@ iConsole的command一个扩展，主要是可以通过iConsole调用某些绑定
 而通过iConsoleCommand。可以写成
 <pre>
 NSDictionary* bindObjs = @{
-                               @"ctl":self
+                               @"a":self
                                };
 _engine = [[CFCommandEngine alloc] initWithBindObject:bindObjs];
 </pre>
@@ -27,6 +27,8 @@ _engine = [[CFCommandEngine alloc] initWithBindObject:bindObjs];
 BOOL ret = [_engine handleConsoleCommand:command];
 </pre>
 这时，在iConsole的输入界面里面，直接输入a.hello()或者a.world()就可以执行相关的方法了。
+
+具体的可以见Demo.
 
 也就是说可以通过增加bindObjs中绑定的instance。可以调用各种方法。
 
