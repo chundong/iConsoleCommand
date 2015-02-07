@@ -47,3 +47,8 @@ BOOL ret = [_engine handleConsoleCommand:command];
 #Tips
 因为回调函数，所以输入会比较多，请把iPhone，iPad 连接到蓝牙键盘后才开始调试。方便输入。
 
+#更强大的方案
+如果应用只支持iOS7以及以上，其实可以考虑使用JavaScriptCore.framework的，那个更强大。如果要支持iOS7以下的，千万不要使用JavascriptCore.framework。因为应用会被认为调用私有函数无法上传（都走不到应用审核的步骤去）。
+
+
+
