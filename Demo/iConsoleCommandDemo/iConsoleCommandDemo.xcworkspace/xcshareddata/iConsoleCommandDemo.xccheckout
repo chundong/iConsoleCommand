@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F02FC6DE-2235-47CE-8DC4-69306E3A2A20</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iConsoleCommandDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CD95CF3B245523EFA08F3D81D47CF7586B4C9BEE</key>
+		<string>github.com:chundong/iConsoleCommand.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Demo/iConsoleCommandDemo/iConsoleCommandDemo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CD95CF3B245523EFA08F3D81D47CF7586B4C9BEE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:chundong/iConsoleCommand.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CD95CF3B245523EFA08F3D81D47CF7586B4C9BEE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CD95CF3B245523EFA08F3D81D47CF7586B4C9BEE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iConsoleCommand</string>
+		</dict>
+	</array>
+</dict>
+</plist>

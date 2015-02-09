@@ -11,7 +11,7 @@
 @interface CFCommandEngine : NSObject{
     NSMutableDictionary*  _bindObjects;
 }
-@property (nonatomic, strong)NSMutableDictionary* bindObjects;
+//@property (nonatomic, strong)NSMutableDictionary* bindObjects;
 
 - (id)initWithBindObject:(NSDictionary*)dict;
 - (BOOL)handleConsoleCommand:(NSString *)command;

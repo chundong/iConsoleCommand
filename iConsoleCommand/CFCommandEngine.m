@@ -22,7 +22,7 @@ static id (*id_method_invoke_id)(id, Method, id) = (id (*)(id, Method, id)) meth
 static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_invoke;
 
 @implementation CFCommandEngine
-@synthesize bindObjects = _bindObjects;
+//@synthesize bindObjects = _bindObjects;
 - (id)initWithBindObject:(NSDictionary*)dict{
     self = [super init];
     if (self) {
@@ -74,7 +74,10 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
                     }
                     
                     status = PARSE_FUNCTION;
-                    [argArray addObject:arg];
+                    if ([arg isEqualToString:@""] == NO) {
+                        [argArray addObject:arg];
+                    }
+                    
                 }else{
                     [arg appendString:[NSString stringWithFormat:@"%C",c]];
                 }
@@ -87,9 +90,83 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
     }
     dict[@"instance"] = insta ;
     dict[@"function"] = func ;
-    dict[@"property"] = [NSString stringWithFormat:@"set%c%@" ,toupper([func characterAtIndex:0]),[func substringFromIndex:1] ];
+    if (argArray.count > 0) {
+        dict[@"property"] = [NSString stringWithFormat:@"set%c%@" ,toupper([func characterAtIndex:0]),[func substringFromIndex:1] ];
+    }else if (argArray.count == 0){
+        dict[@"property"] = [NSString stringWithFormat:@"get%c%@" ,toupper([func characterAtIndex:0]),[func substringFromIndex:1] ];
+    }
+    
     dict[@"args"] = argArray;
     return dict;
+}
+
+- (void)appendBindObjs:(NSDictionary*)appendDict{
+    [_bindObjects setValuesForKeysWithDictionary:appendDict];
+}
+
+- (BOOL)executeMethod:(NSDictionary*)dict withInstance:(id)insta andClass:(Class) cls{
+    BOOL ret = NO;
+    
+    unsigned int count = 0;
+    Method* methods = class_copyMethodList(cls, &count);
+    Method targetMethod = NULL;
+    NSString* returnType = nil;
+    
+    NSString* funcationName = dict[@"function"];
+    
+    for (unsigned int i = 0; i < count; i++) {
+        Method m = methods[i];
+        SEL sel = method_getName(m);
+        
+        NSString* selName = [NSString stringWithFormat:@"%s",sel_getName(sel )];
+        char dst[1024];
+        memset(dst, 0, 1024);
+        
+        method_getReturnType(m,dst,1024);
+        
+//        NSLog(@"class = %s retType == %s sel = %@ funcationName = %@ ",class_getName(cls), dst,selName,funcationName);
+        
+        if ([selName isEqualToString:funcationName] || [selName isEqualToString:dict[@"property"]]) {
+            returnType = [NSString stringWithFormat:@"%s",dst];
+            targetMethod = m;
+        }
+    }
+    
+    if (targetMethod)
+    {
+        ret = YES;
+        switch ([dict[@"args"] count]) {
+            case 0:
+                //TODO 这个地方使用isEqualToString感觉不怎么好，主要是对method_getReturnType整个方法不是太了解。后面优化。
+                if ([returnType isEqualToString:@"v"]) {
+                    void_method_invoke_void(insta,targetMethod);
+                }else if([returnType isEqualToString:@"@"]){
+                    id retVal = id_method_invoke_void(insta,targetMethod);
+                    [iConsole info:@"retVal = %@",retVal];
+                }
+                
+                break;
+            case 1:
+                
+                if ([returnType isEqualToString:@"v"]) {
+                    void_method_invoke_id(insta,targetMethod,dict[@"args"][0]);
+                }else if([returnType isEqualToString:@"@"]){
+                    id retVal = id_method_invoke_id(insta,targetMethod,dict[@"args"][0]);
+                    [iConsole info:@"retVal = %@",retVal];
+                }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        if (class_getSuperclass(cls)) {
+            [self executeMethod:dict withInstance:insta andClass:class_getSuperclass(cls)];
+        }
+    }
+    free(methods);
+    
+    return ret;
 }
 
 - (BOOL)handleConsoleCommand:(NSString *)command
@@ -100,70 +177,17 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
         
         NSDictionary* parseResult = [self parseCommand:command];
         
-        NSString* funcationName = parseResult[@"function"];
-
         if (_bindObjects[parseResult[@"instance"]])
         {
-            NSObject* obj = _bindObjects[parseResult[@"instance"]];
+            NSObject* insta = _bindObjects[parseResult[@"instance"]];
             
-            unsigned int count = 0;
-            Method* methods = class_copyMethodList([obj class], &count);
-            Method targetMethod = NULL;
-            NSString* returnType = nil;
-            for (unsigned int i = 0; i < count; i++) {
-                Method m = methods[i];
-                SEL sel = method_getName(m);
-                
-                NSString* selName = [NSString stringWithFormat:@"%s",sel_getName(sel )];
-                char dst[1024];
-                memset(dst, 0, 1024);
-                
-                method_getReturnType(m,dst,1024);
-                
-                NSLog(@"retType == %s sel = %@",dst,selName);
-                
-                if ([selName isEqualToString:funcationName] || [selName isEqualToString:parseResult[@"property"]]) {
-                    returnType = [NSString stringWithFormat:@"%s",dst];
-                    targetMethod = m;
-                }
-            }
-            
-            if (targetMethod)
-            {
-                ret = YES;
-                switch ([parseResult[@"args"] count]) {
-                    case 0:
-                        //TODO 这个地方使用isEqualToString感觉不怎么好，主要是对method_getReturnType整个方法不是太了解。后面优化。
-                        if ([returnType isEqualToString:@"v"]) {
-                            void_method_invoke_void(obj,targetMethod);
-                        }else if([returnType isEqualToString:@"@"]){
-                            id retVal = id_method_invoke_void(obj,targetMethod);
-                            [iConsole info:@"retVal = %@",retVal];
-                        }
-                        
-                        break;
-                    case 1:
-                        
-                        if ([returnType isEqualToString:@"v"]) {
-                            void_method_invoke_id(obj,targetMethod,parseResult[@"args"][0]);
-                        }else if([returnType isEqualToString:@"@"]){
-                            id retVal = id_method_invoke_id(obj,targetMethod,parseResult[@"args"][0]);
-                            [iConsole info:@"retVal = %@",retVal];
-                        }
-                        break;
-                        
-                    default:
-                        break;
-                }
-            }else{
-                [iConsole warn:@"no method"];
-            }
-            free(methods);
-            
-            
+            ret = [self executeMethod:parseResult withInstance:insta andClass:[insta class]];
             
         }
-    } 
+    }
+    if (ret == NO) {
+        [iConsole info:@"no suth command"];
+    }
     return ret;
     
 }
