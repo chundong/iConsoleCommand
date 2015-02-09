@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "iConsoleCommand"
   s.version      = "0.0.1"
-  s.summary      = "extends for iConsole, use obj-c runtime library  to  call instance method"
+  s.summary      = "extension for iConsole, use obj-c runtime library  to  call instance method"
 
   s.description  = <<-DESC
                   iConsole的扩展，通过使用objc的runtime库动态调用instance的Method
