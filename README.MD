@@ -1,4 +1,13 @@
-iConsole的command一个扩展，主要是可以通过iConsole调用某些绑定的instance的方法来查看相关的对象。iConsole的handleConsoleCommand接口只要内置相关的命令就可以了。但是我想要更多的交互：调用绑定的实例对象的方法，得到更多的方法。
+iConsole的command一个扩展，主要是可以通过iConsole调用某些绑定的instance的方法来查看相关的对象。
+
+#应用场景
+1、iConsole的handleConsoleCommand接口只要内置相关的命令就可以了。这有个缺点就是随着命令越多，handleConsoleCommand这个方法越大，不容易维护。而通过动态绑定的实例对象的方法，代码的增长幅度会缩小。
+
+2、很多bug的出现都是在非开发状态中出现的，这时应用没在Debug模式下，无法通过xcode调试来查看更多信息。通过这个，可以查看更多的信息。
+
+如果不在这两种场景的话，可以不用考虑使用这个。
+
+#例子
 
 假设有一个instance a 有一个hello和world两个方法，如果使用iConsole的接口，代码如下：
 <pre>
@@ -28,6 +37,10 @@ BOOL ret = [_engine handleConsoleCommand:command];
 </pre>
 这时，在iConsole的输入界面里面，直接输入a.hello()或者a.world()就可以执行相关的方法了。
 
+如果有些instance会时刻变化，可以在iConsoleDelegate的handleConsoleCommand的回调中进行动态的绑定，然后调用下面的方法添加到CommandEngine中去。
+<pre>
+- (void)appendBindObjs:(NSDictionary*)appendDict;
+</pre>
 具体的可以见Demo.
 
 也就是说可以通过增加bindObjs中绑定的instance。可以调用各种方法。
