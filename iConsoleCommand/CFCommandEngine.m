@@ -163,7 +163,7 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
         }
     }else{
         if (class_getSuperclass(cls)) {
-            [self executeMethod:dict withInstance:insta andClass:class_getSuperclass(cls)];
+            ret = [self executeMethod:dict withInstance:insta andClass:class_getSuperclass(cls)];
         }
     }
     free(methods);
