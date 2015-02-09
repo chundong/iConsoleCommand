@@ -15,4 +15,5 @@
 
 - (id)initWithBindObject:(NSDictionary*)dict;
 - (BOOL)handleConsoleCommand:(NSString *)command;
+- (void)appendBindObjs:(NSDictionary*)appendDict;
 @end
