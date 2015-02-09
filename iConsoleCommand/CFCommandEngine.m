@@ -12,9 +12,12 @@
 #import <objc/message.h>
 #import "iConsole.h"
 
-#define PARSE_OBJ_NAME 0
-#define PARSE_FUNCTION 1
-#define PARSE_ARG 2
+typedef enum PARSE_STATUS{
+    kParseStatusInstanceName,
+    kParseStatusFunctionName,
+    kParseStatusArg,
+} kParseStatus;
+
 //http://stackoverflow.com/questions/19694173/using-objective-cs-invoke-method-to-call-a-void-method-under-arc
 static void (*void_method_invoke_void)(id, Method) = (void (*)(id, Method)) method_invoke;
 static void (*void_method_invoke_id)(id, Method, id) = (void (*)(id, Method, id)) method_invoke;
@@ -37,7 +40,7 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
 - (NSDictionary*)parseCommand:(NSString*) command{
 
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithCapacity:10];
-    int status = PARSE_OBJ_NAME;
+    kParseStatus status = kParseStatusInstanceName;
     
     NSMutableArray* argArray = [[NSMutableArray alloc] initWithCapacity:10];
     NSMutableString* insta = [[NSMutableString alloc] initWithCapacity:10];
@@ -47,33 +50,33 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
     for ( int i = 0; i < [command length];i++){
         unichar c = [command characterAtIndex:i];
         switch (status) {
-            case PARSE_OBJ_NAME:{
+            case kParseStatusInstanceName:{
                 if ( c != '.') {
                     [insta appendString:[NSString stringWithFormat:@"%C",c]];
                 }else{
-                    status = PARSE_FUNCTION;
+                    status = kParseStatusFunctionName;
                 }
                 break;
             }
-            case PARSE_FUNCTION:
+            case kParseStatusFunctionName:
                 if (isalpha(c)) {
                     [func appendString:[NSString stringWithFormat:@"%C",c]];
                     
                 }else if(c == '.'){
                     //
                 }else if(c == '('){
-                    status = PARSE_ARG;
+                    status = kParseStatusArg;
                     
                     arg = [[NSMutableString alloc] initWithCapacity:10];
                 }
                 break;
-            case PARSE_ARG:
+            case kParseStatusArg:
                 if(c == ')'){
                     if ([arg length] > 0) {
                         [func appendString:@":"];
                     }
                     
-                    status = PARSE_FUNCTION;
+                    status = kParseStatusFunctionName;
                     if ([arg isEqualToString:@""] == NO) {
                         [argArray addObject:arg];
                     }
@@ -83,11 +86,10 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
                 }
                 
                 break;
-            default:
-                break;
         }
         
     }
+    
     dict[@"instance"] = insta ;
     dict[@"function"] = func ;
     if (argArray.count > 0) {
