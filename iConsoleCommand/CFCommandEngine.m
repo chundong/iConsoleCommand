@@ -127,7 +127,8 @@ static id (*id_method_invoke_void)(id, Method) = (id (*)(id, Method)) method_inv
         method_getReturnType(m,dst,1024);
         
 //        NSLog(@"class = %s retType == %s sel = %@ funcationName = %@ ",class_getName(cls), dst,selName,funcationName);
-        
+//见 Type Encodings: objc runtime program guide
+// https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100        
         if ([selName isEqualToString:funcationName] || [selName isEqualToString:dict[@"property"]]) {
             returnType = [NSString stringWithFormat:@"%s",dst];
             targetMethod = m;
